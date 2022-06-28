@@ -6,7 +6,6 @@ phases:
       nodejs: 10
   build:
     commands:
-      - npm install
   post_build:
     commands:
       - echo PWD
