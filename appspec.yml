@@ -1,0 +1,23 @@
+version: 0.0
+os: linux
+
+files:
+  - source: /
+    destination: /var/www/learning-locker-latest
+hooks:
+  ApplicationStop:
+    - location: scripts/deploy/stop_server.sh
+      timeout: 30
+      runas: root
+  BeforeInstall:
+    - location: scripts/deploy/remove.sh
+      timeout: 60
+      runas: root
+  AfterInstall:
+    - location: scripts/deploy/app_setup.sh
+      timeout: 120
+      runas: root
+  ApplicationStart:
+    - location: scripts/deploy/start_server.sh
+      timeout: 30
+      runas: root

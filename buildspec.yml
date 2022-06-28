@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+  build:
+    commands:
+      - npm install
+  post_build:
+    commands:
+      - echo PWD
+      - pwd
+      - rm composer.*
+      - zip -r output.zip * -x scripts/**\* *.yml
+artifacts:
+  files:
+    - output.zip
+    - appspec.yml
+    - scripts/**/*
+    - config/**/*
