@@ -10,7 +10,6 @@ phases:
     commands:
       - echo PWD
       - pwd
-      - rm composer.*
       - zip -r output.zip * -x scripts/**\* *.yml
 artifacts:
   files:
