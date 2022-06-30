@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
+#set -e
 
-service httpd start
+#service httpd start
