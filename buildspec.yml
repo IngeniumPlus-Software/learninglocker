@@ -3,9 +3,15 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 10
+      nodejs: 14
+  pre-build:
+    commands:
+      - echo Install dependencies node modules with yarn.
+      - npm_config_build_from_source=true yarn install --ignore-engines
   build:
     commands:
+      - yarn build-all
+      - yarn migrate
   post_build:
     commands:
       - echo PWD
