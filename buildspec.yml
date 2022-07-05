@@ -4,7 +4,7 @@ phases:
   install:
     runtime-versions:
       nodejs: 14
-  pre-build:
+  pre_build:
     commands:
       - echo Install dependencies node modules with yarn.
       - npm_config_build_from_source=true yarn install --ignore-engines
