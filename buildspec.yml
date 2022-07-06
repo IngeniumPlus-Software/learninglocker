@@ -18,10 +18,11 @@ phases:
     commands:
       - echo PWD
       - pwd
-      - zip -r output.zip * -x scripts/**\* *.yml
+      - zip -r output.zip * -x scripts/**\* *.yml .env
 artifacts:
   files:
     - output.zip
+    - .env
     - appspec.yml
     - scripts/**/*
     - config/**/*
