@@ -6,7 +6,10 @@ files:
     destination: /var/www/learning-locker-latest
 hooks:
   ApplicationStop:
-    - location: scripts/deploy/stop_server.sh
+    - location: scripts/deploy/stop_pm2.sh
+      timeout: 60
+      runas: nodejs
+    - location: scripts/deploy/stop_nginx.sh
       timeout: 30
       runas: root
   BeforeInstall:
@@ -18,6 +21,9 @@ hooks:
       timeout: 120
       runas: root
   ApplicationStart:
-    - location: scripts/deploy/start_server.sh
+    - location: scripts/deploy/start_pm2.sh
+      timeout: 120
+      runas: nodejs
+    - location: scripts/deploy/start_nginx.sh
       timeout: 30
       runas: root
