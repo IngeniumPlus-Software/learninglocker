@@ -3,11 +3,9 @@
 set -e
 
 cd /var/www/learning-locker-latest
-
+# unzip our latest
 unzip output.zip -d /var/www/learning-locker-latest/
-cp /var/www/learning-locker-latest/health.js /var/www/learning-locker-latest/ui/dist/public/health.js
-
-#run this as nodejs
-su nodejs
-cd ~
-. ~/.nvm/nvm.sh
+# recreate .env file that has been deleted during code deployment
+cat /etc/profile.d/ips-env.sh | sed "s/export//" | sed "s/'//g" >> /var/www/learning-locker-latest/.env
+# make sure that nodejs user has control
+chown nodejs -R /var/www/learning-locker-latest/

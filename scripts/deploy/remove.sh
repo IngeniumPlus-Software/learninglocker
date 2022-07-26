@@ -2,4 +2,4 @@
 
 set -e
 
-rm -rf /var/www/learning-locker-latest/
+rm -Rf /var/www/learning-locker-latest
